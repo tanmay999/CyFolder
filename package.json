@@ -1,0 +1,31 @@
+{
+  "name": "cypres-aotomation-framework",
+  "version": "1.0.0",
+  "description": "Cypres  automation test framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "full-regression-headless-chrome":"cypress run --headed --browser chrome --spec 'cypress/e2e/*.feature",
+    "contact-us-test-headed-chrome" : "cypress run -e TAGS=\"@contact-us\" --headed",
+    "login-tests-headed": "cypress run -e TAGS=\"@login\" --headed",
+    "login-and-smoke-pack": "cypress run -e TAGS=\"@smoke or @login\" --headed"
+  },
+  "author": "Tanmay D",
+  "license": "ISC",
+  "devDependencies": {
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.3",
+    "cypress": "^13.16.0"
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^21.0.3",
+    "save": "^2.9.0"
+  },
+  "cypress-cucumber-preprocessor" : {
+    "stepDefinitions" :"cypress/support/step_definitions/**/*.js",
+    "html":{
+      "enabled":true,
+      "output" :"cypress/reports/cucumber-html/cucumber-report.html"
+    }
+  }
+}
+
